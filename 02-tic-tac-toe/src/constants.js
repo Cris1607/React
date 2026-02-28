@@ -1,6 +1,6 @@
 export const TURNS = {
-  X: 'x',
-  O: 'o'
+  X: '✕',
+  O: '○'
 }
 //Todas las combinaciones ganadoras
 export const WINNER_COMBOS = [
@@ -13,5 +13,6 @@ export const WINNER_COMBOS = [
   [0, 4, 8],
   [2, 4, 6]
 ]
+
 
 
