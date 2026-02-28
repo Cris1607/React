@@ -8,18 +8,27 @@ import { WinnerModal } from './components/WinnerModal'
 import './App.css'
 
 function App() {
-  const [board, setBoard] = useState(Array(9).fill(null))
+  const [board, setBoard] = useState(() => {
+    const boardFromStorage = window.localStorage.getItem('board')
+    return boardFromStorage ? JSON.parse(boardFromStorage) : Array(9).fill(null)
+  })
 
-  const [turn, setTurn] = useState(TURNS.X)
+  const [turn, setTurn] = useState(() => {
+    const turnFromStorage = window.localStorage.getItem('turn')
+    return turnFromStorage ? JSON.parse(turnFromStorage) : TURNS.X
+  })
+
   const [winner, setWinner] = useState(null) //Null es que no hay ganador, false es que hay un empate
 
   const resetGame = () => {
     setBoard(Array(9).fill(null))
     setTurn(TURNS.X)
     setWinner(null)
+    window.localStorage.removeItem('board')
+    window.localStorage.removeItem('turn')
   }
 
-  //TODO: COMPONETIZAR TABLERO, REVISAR GANADOR
+ 
   const updateBoard = (index) => {
 
     /*No actualizamos esta posición
@@ -36,6 +45,10 @@ function App() {
     //Cambiar el turno
     const newTurn  = turn === TURNS.X ? TURNS.O : TURNS.X
     setTurn(newTurn)
+
+    //Guardar partida en localStorage
+    window.localStorage.setItem('board', JSON.stringify(newBoard))
+    window.localStorage.setItem('turn', JSON.stringify(newTurn))
 
     //Revisar si hay ganador
     const newWinner = checkWinnerFrom(newBoard)
