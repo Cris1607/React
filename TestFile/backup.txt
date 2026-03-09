@@ -1,0 +1,7 @@
+25.10.33.02-250924a-420421C-AMD-Software-Adrenalin-Edition
+
+Equipo\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{D0941B2B-B836-11F0-B1C2-50C2E80BFB44}\0000
+
+23.19.23.11-250701a-417877C-AMD-Software-Adrenalin-Edition
+
+25.10.13.11-250701a-417877C-AMD-Software-Adrenalin-Edition
